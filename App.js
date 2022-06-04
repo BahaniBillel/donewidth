@@ -1,18 +1,14 @@
 import React from 'react';
 import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
 import Screen from './app/components/Screen';
-import Icon from './app/components/Icon';
-import ListItem from './app/components/ListItem';
-import ListingsScreen from './app/screens/ListingsScreen';
+import { Switch } from 'react-native-gesture-handler';
 
 export default function App() {
+  const [isNew,setIsNew]=React.useState(false)
   return (
     <GestureHandlerRootView>
       <Screen>
-        
-      <TextInput
-      placeholder='type a search'
-      />
+        <Switch value={isNew} onValueChange={(newValue)=>setIsNew(newValue)}/>
       </Screen>
       
     </GestureHandlerRootView>
