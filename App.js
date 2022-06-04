@@ -1,11 +1,11 @@
 import React from 'react';
-import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
+import { GestureHandlerRootView,Switch } from 'react-native-gesture-handler';
 import Screen from './app/components/Screen';
-import { Switch } from 'react-native-gesture-handler';
+import { Picker} from 'react-native';
 
 export default function App() {
   const [isNew,setIsNew]=React.useState(false)
-  return (
+  return (git 
     <GestureHandlerRootView>
       <Screen>
         <Switch value={isNew} onValueChange={(newValue)=>setIsNew(newValue)}/>
