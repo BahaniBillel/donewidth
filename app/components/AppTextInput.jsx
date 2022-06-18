@@ -32,13 +32,15 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 30,
     overflow:"hidden",
+    alignItems:"center"
   },
   textInput: {
     
     width:"100%",
-    padding:25
+    padding:25,
+    
   },
   icon:{
-      marginRight:1,
+      marginRight:10,
   }
 });
