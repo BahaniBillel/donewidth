@@ -5,13 +5,13 @@ import {
   Modal,
   TouchableWithoutFeedback,
   FlatList,
-} from "react-native";
-import React from "react";
+} from 'react-native';
+import React from 'react';
 
-import { MaterialCommunityIcons } from "@expo/vector-icons";
-import defaultStyles from "../config/styles";
-import AppTextInput from "./AppTextInput";
-import PickerItem from "./PickerItem";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import defaultStyles from '../config/styles';
+import AppText from './AppText';
+import PickerItem from './PickerItem';
 
 export default function AppPicker({
   icon,
@@ -37,22 +37,23 @@ export default function AppPicker({
               color={defaultStyles.colors.medium}
             />
           )}
-          
-          <View style={styles.inputWrapper}>
 
-          <AppTextInput style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppTextInput>
-          <MaterialCommunityIcons
-            name="chevron-down"
-            size={20}
-            color={defaultStyles.colors.medium}
-          />
+          <View style={styles.inputWrapper}>
+            {selectedItem ? (
+              <AppText style={styles.text}>{selectedItem.label}</AppText>
+            ) : (
+              <AppText style={styles.placeholder}>{placeholder}</AppText>
+            )}
+
+            <MaterialCommunityIcons
+              name="chevron-down"
+              size={20}
+              color={defaultStyles.colors.medium}
+            />
           </View>
         </View>
       </TouchableWithoutFeedback>
-      
-      
+
       <Modal visible={modalVisible} animationType="slide">
         <Button title="close" onPress={() => setModalVisibe(false)}></Button>
 
@@ -78,31 +79,35 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
-    flexDirection: "row",
-    width: "100%",
+    flexDirection: 'row',
+    width: '100%',
     padding: 10,
     marginVertical: 30,
-    overflow: "hidden",
-    alignItems:"center",
-    justifyContent:"flex-start",
-    flexWrap:"nowrap"
+    overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    flexWrap: 'nowrap',
   },
   text: {
-    flex:1,
+    flex: 1,
   },
   textInput: {
-    width: "100%",
+    width: '100%',
     padding: 25,
   },
   icon: {
     marginRight: 1,
   },
-  inputWrapper:{
-    flex:1,
-    flexDirection:"row",
-    paddingHorizontal:20,
-    flexWrap:"nowrap",
-    justifyContent:"center",
-    alignItems:"center"
-  }
+  inputWrapper: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    flexWrap: 'nowrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  placeholder: {
+    color: defaultStyles.colors.medium,
+    flex: 1,
+  },
 });
