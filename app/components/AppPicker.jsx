@@ -15,10 +15,12 @@ import PickerItem from './PickerItem';
 
 export default function AppPicker({
   icon,
-  placeholder,
   items,
-  selectedItem,
   onSelectItem,
+  PickerItemComponent = PickerItem,
+  placeholder,
+  selectedItem,
+  width="100%"
 }) {
   const [modalVisible, setModalVisibe] = React.useState(false);
 
@@ -29,7 +31,7 @@ export default function AppPicker({
   return (
     <>
       <TouchableWithoutFeedback onPress={ShowModal}>
-        <View style={styles.container}>
+        <View style={[styles.container,{width}]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -61,7 +63,8 @@ export default function AppPicker({
           data={items}
           keyExtractor={(item) => item.value.toString()}
           renderItem={({ item }) => (
-            <PickerItem
+            <PickerItemComponent
+            item={item}
               label={item.label}
               onPress={() => {
                 setModalVisibe(false);
@@ -80,7 +83,6 @@ const styles = StyleSheet.create({
     backgroundColor: defaultStyles.colors.light,
     borderRadius: 25,
     flexDirection: 'row',
-    width: '100%',
     padding: 10,
     marginVertical: 30,
     overflow: 'hidden',

@@ -20,10 +20,11 @@ export default function App() {
   return (
     <GestureHandlerRootView>
       <Screen>
-        <MessagesScreen />
+        {/* <MessagesScreen /> */}
+        <ListingEditScreen/>
       </Screen>
     </GestureHandlerRootView>
   );
 }
 
-// stopped at course #7 forms
+// restart the lesson 8-building categorypickerItem from additiona; improvements folder
